@@ -1,0 +1,22 @@
+#Set the ignore
+
+#Res
+*.jpg
+
+#build stuff
+*/build/*
+*/Build/*
+*/.vscode/
+*/CMakeFiles/**
+
+#-optput
+*.o
+*.cmake
+*test.cpp
+*Test.cpp
+*/ui_\_*\.h
+
+#Individual-files
+CMakeCache.txt
+#Project
+TechCloud.pro.user
