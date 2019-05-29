@@ -1,3 +1,14 @@
+/**
+ * @file MainWindow.h
+ * @author Henrik Gerdes (hegerdes@uni-osnabrueck.de)
+ * @brief
+ * @version 0.1
+ * @date 2019-05-30
+ *
+ * @copyright Copyright (c) 2019
+ *
+ */
+
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
@@ -13,6 +24,8 @@
 namespace Ui {
 class MainWindow;
 }
+
+namespace tcloud{
 
 class MainWindow : public QMainWindow
 {
@@ -32,4 +45,5 @@ private:
     ResultWindow *resultWindow;
 };
 
+}//tcloud
 #endif // MAINWINDOW_H

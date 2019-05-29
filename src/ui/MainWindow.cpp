@@ -1,6 +1,20 @@
+/**
+ * @file MainWindow.cpp
+ * @author Henrik Gerdes (hegerdes@uni-osnabrueck.de)
+ * @brief
+ * @version 0.1
+ * @date 2019-05-30
+ *
+ * @copyright Copyright (c) 2019
+ *
+ */
+
+
 #include "MainWindow.h"
 #include "ui_MainWindow.h"
 
+namespace tcloud
+{
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -50,3 +64,4 @@ void MainWindow::on_searchButton_clicked()
 {
     resultWindow->show();
 }
+} //tcloud

@@ -1,3 +1,15 @@
+/**
+ * @file ResultWindow.h
+ * @author Henrik Gerdes (hegerdes@uni-osnabrueck.de)
+ * @brief
+ * @version 0.1
+ * @date 2019-05-30
+ *
+ * @copyright Copyright (c) 2019
+ *
+ */
+
+
 #ifndef RESULTWINDOW_H
 #define RESULTWINDOW_H
 
@@ -7,6 +19,8 @@ namespace Ui {
 class ResultWindow;
 }
 
+namespace tcloud
+{
 class ResultWindow : public QWidget
 {
     Q_OBJECT
@@ -21,5 +35,7 @@ private slots:
 private:
     Ui::ResultWindow *ui;
 };
+
+} //tcloud
 
 #endif // RESULTWINDOW_H
