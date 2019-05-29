@@ -4,10 +4,10 @@
 *.jpg
 
 #build stuff
-*/build/*
-*/Build/*
-*/.vscode/
-*/CMakeFiles/**
+**/build/*
+**/Build/*
+**/.vscode/
+**/CMakeFiles/**
 
 #-optput
 *.o
@@ -20,3 +20,4 @@
 CMakeCache.txt
 #Project
 TechCloud.pro.user
+CMakeLists.txt.user

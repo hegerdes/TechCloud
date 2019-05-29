@@ -48,7 +48,7 @@ include_directories(${CMAKE_SOURCE_DIR})
 
 set(Boost_USE_MULTITHREADED     ON)
 
-find_package( Boost 1.54
+find_package( Boost 1.60
     COMPONENTS
     program_options
     filesystem
@@ -92,19 +92,19 @@ include_directories(${Qt5OpenGL_INCLUDE_DIRS})
 ###############################################################################
 
 set(TECHCLOUD_SOURCES
-    src\ui\ResultWindow.cpp
+    src/ui/ResultWindow.cpp
     main.cpp
-    src\ui\MainWindow.cpp
+    src/ui/MainWindow.cpp
 )
 
 set(TECHCLOUD_MOCS
-    src\ui\ResultWindow.h
-    src\ui\MainWindow.h
+    src/ui/ResultWindow.h
+    src/ui/MainWindow.h
 )
 
 set(TECHCLOUD_UIS
-    src\ui\ResultWindow.ui
-    src\ui\MainWindow.ui
+    src/ui/ResultWindow.ui
+    src/ui/MainWindow.ui
 )
 
 set(CMAKE_AUTOUIC ON)
