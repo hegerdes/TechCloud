@@ -25,8 +25,9 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
-        src\ui\ResultWindow.cpp \
         main.cpp \
+        src\reader\Note.cpp \
+        src\ui\ResultWindow.cpp \
         src\ui\MainWindow.cpp
 
 HEADERS += \

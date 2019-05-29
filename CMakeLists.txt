@@ -92,8 +92,9 @@ include_directories(${Qt5OpenGL_INCLUDE_DIRS})
 ###############################################################################
 
 set(TECHCLOUD_SOURCES
-    src/ui/ResultWindow.cpp
     main.cpp
+    src/reader/Note.cpp
+    src/ui/ResultWindow.cpp
     src/ui/MainWindow.cpp
 )
 
