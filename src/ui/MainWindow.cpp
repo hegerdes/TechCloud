@@ -22,6 +22,9 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     this->setWindowTitle("TechCloud");
 
+    //Init other windows
+    resultWindow = new ResultWindow(this);
+
     //Set mainFrame size with mainWwindow size
     ui->main_frame->size().setWidth(this->size().width());
     ui->main_frame->size().setHeight(this->size().height());
