@@ -26,7 +26,7 @@ CONFIG += c++11
 #Libs
 
 INCLUDEPATH += C:\libs\boost_1_70_0
-LIBS += C:\libs\boost_1_70_0\msvclibs_all\lib\
+#LIBS += C:\libs\boost_1_70_0\msvclibs_all\lib\
 
 
 SOURCES += \

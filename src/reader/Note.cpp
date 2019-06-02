@@ -16,7 +16,6 @@ namespace tcloud
 
 Note::Note(int a)
 {
-	std::cout << "Hello" << std::endl;
 }
 
 } //tcloud

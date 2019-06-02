@@ -30,6 +30,9 @@ public:
     ~ResultWindow();
 
 private:
+
+    //The name of the found result
+    std::string m_title;
     Ui::ResultWindow *ui;
 };
 
