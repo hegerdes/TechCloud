@@ -85,11 +85,11 @@ public:
     inline std::string & get_example() { return m_example; }
     void set_example(const std::string& value) { this->m_example = value; }
 
-    inline std::vector<int64_t> & get_tags() { return m_tags; }
-    void set_tags(const std::vector<int64_t>& value) { this->m_tags = value; }
+    inline std::vector<std::string> & get_tags() { return m_tags; }
+    void set_tags(const std::vector<std::string>& value) { this->m_tags = value; }
 
-    inline std::vector<int64_t> & get_language() { return m_language; }
-    void set_language(const std::vector<int64_t>& value) { this->m_language = value; }
+    inline std::vector<std::string> & get_language() { return m_language; }
+    void set_language(const std::vector<std::string>& value) { this->m_language = value; }
 
     inline std::string & get_group() { return m_group; }
     void set_group(const std::string& value) { this->m_group = value; }
@@ -107,8 +107,8 @@ private:
     std::string m_sumery;
     std::string m_discription;
     std::string m_example;
-    std::vector<int64_t> m_tags;
-    std::vector<int64_t> m_language;
+    std::vector<std::string> m_tags;
+    std::vector<std::string> m_language;
     std::string m_group;
     bool m_favorite;
     std::vector<Ref> m_refs;
