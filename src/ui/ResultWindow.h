@@ -29,9 +29,6 @@ public:
     explicit ResultWindow(QWidget *parent = nullptr);
     ~ResultWindow();
 
-private slots:
-    void on_pushButton_clicked();
-
 private:
     Ui::ResultWindow *ui;
 };
