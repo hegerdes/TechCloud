@@ -36,7 +36,6 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_useAdvanced_check_stateChanged(int arg1);
 
     void on_searchButton_clicked();
 

@@ -23,14 +23,13 @@ MainWindow::MainWindow(QWidget *parent) :
     this->setWindowTitle("TechCloud");
 
     //Init other windows
-    resultWindow = new ResultWindow(this);
+    resultWindow = new ResultWindow();
 
     //Set mainFrame size with mainWwindow size
     ui->main_frame->size().setWidth(this->size().width());
     ui->main_frame->size().setHeight(this->size().height());
 
     //default hide advanced search
-    ui->advanced_frame->hide();
     ui->centralWidget->showMaximized();
 
 
@@ -53,14 +52,14 @@ MainWindow::~MainWindow()
 
 
 
-void MainWindow::on_useAdvanced_check_stateChanged(int arg1)
-{
-    if(arg1 == Qt::Unchecked)
-    {
-        ui->advanced_frame->hide();
-    }else ui->advanced_frame->show();
+//void MainWindow::on_useAdvanced_check_stateChanged(int arg1)
+//{
+//    if(arg1 == Qt::Unchecked)
+//    {
+//        ui->advanced_frame->hide();
+//    }else ui->advanced_frame->show();
 
-}
+//}
 
 
 void MainWindow::on_searchButton_clicked()
