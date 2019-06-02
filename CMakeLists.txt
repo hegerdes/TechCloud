@@ -27,7 +27,7 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/")
 IF (WIN32)
     set (CMAKE_PREFIX_PATH "C:/Qt/5.12.2/msvc2017_64")
     SET(BOOST_ROOT "C:/libs/boost_1_70_0")
-    SET(BOOST_LIBRARYDIR "C:/libs/boost_1_70_0/msvclibs/lib")
+    SET(BOOST_LIBRARYDIR "C:/libs/boost_1_70_0/msvclibs_all/lib")
     SET(Boost_NAMESPACE "libboost")
 ENDIF()
 
