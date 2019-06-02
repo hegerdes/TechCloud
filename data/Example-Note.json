@@ -1,0 +1,21 @@
+{
+    "ID": 1,
+    "Title": "Num1",
+    "Sum": "Das ist ein Beispiel",
+    "Dis": "Hier steht ganz viel Text",
+    "Example": "CODE",
+    "Tags": ["CPP","2","3","4"],
+    "Language": ["Java","4"],
+    "Group": "Ungroupt",
+    "Favorite": true,
+    "Refs":[
+        {
+			"ReplaceWord:": "Example",
+			"RefNum": 21
+        },
+        {
+            "ReplaceWord:": "Example1",
+            "RefNum": 22
+        }
+    ]
+}
