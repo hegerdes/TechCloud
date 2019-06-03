@@ -32,6 +32,7 @@ INCLUDEPATH += C:\libs\boost_1_70_0
 SOURCES += \
         main.cpp \
         src\reader\Note.cpp \
+        src/reader/Note_preference.cpp \
         src\ui\ResultWindow.cpp \
         src\ui\MainWindow.cpp
 

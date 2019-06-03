@@ -1,0 +1,16 @@
+{
+    "Favorits":[
+        {
+            "Note_ID": 1,
+            "Note_Name": "Title"
+        },
+        {
+            "Note_ID": 2,
+            "Note_Name": "Title2"
+        }
+    ],
+    "Tags": ["CPP", "Tipp"],
+    "Groups": ["G1", "G2"],
+    "Language": ["Java", "C'"]
+
+}
