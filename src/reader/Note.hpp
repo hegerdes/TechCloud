@@ -60,9 +60,7 @@ public:
      * @brief Construct a new Note object
      *
      */
-    Note() = default;
-
-    Note(int a);
+    Note();
 
     /**
      * @brief Destroy the Note object

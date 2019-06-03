@@ -13,6 +13,7 @@
 #include <QApplication>
 #include "src/reader/Note.hpp"
 #include "ext/json/json.hpp"
+#include "src/reader/Note_preference.hpp"
 
 using json = nlohmann::json;
 using namespace tcloud;
@@ -21,8 +22,6 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     MainWindow window;
-
-    tcloud::Note aa = tcloud::Note(2);
 
 
 

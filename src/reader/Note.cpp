@@ -14,7 +14,7 @@
 namespace tcloud
 {
 
-Note::Note(int a)
+Note::Note()
 {
 }
 
