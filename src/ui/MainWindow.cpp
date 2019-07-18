@@ -43,6 +43,8 @@ MainWindow::MainWindow(QWidget *parent) :
     //item->setPixmap(image);
     //scene->addItem(item);
     //ui->Ui_MainWindow::graphicsView->setScene(scene);
+
+    //on_searchButton_clicked();
 }
 
 MainWindow::~MainWindow()

@@ -14,6 +14,9 @@
 #define RESULTWINDOW_H
 
 #include <QWidget>
+#include <QAction>
+#include <QMenu>
+#include <QMenuBar>
 
 namespace Ui {
 class ResultWindow;
@@ -31,6 +34,8 @@ public:
 
 private:
 
+    //TitelMenu
+    void createMenu();
     //The name of the found result
     std::string m_title;
     Ui::ResultWindow *ui;
