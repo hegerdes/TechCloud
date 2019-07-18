@@ -4,6 +4,7 @@
 *.jpg
 
 #build stuff
+**/.vs/*
 **/build/*
 **/Build/*
 **/.vscode/
@@ -21,3 +22,4 @@ CMakeCache.txt
 #Project
 TechCloud.pro.user
 CMakeLists.txt.user
+CMakeSettings.json
