@@ -11,8 +11,8 @@ project(tech_cloud)
 ###############################################################################
 # Now add and declare additional linker and include directories.
 ###############################################################################
-set(JSON_BuildTests OFF CACHE INTERNAL "")
-add_subdirectory(ext_lib/nlohmannJSON)
+#set(JSON_BuildTests OFF CACHE INTERNAL "")
+#add_subdirectory(ext_lib/nlohmannJSON)
 
 ###############################################################################
 # Extend path to search for local cmake modules
@@ -127,6 +127,8 @@ set(TECHCLOUD_DEPENDS
     ${Qt5Network_LIBRARIES}
     nlohmann_json::nlohmann_json
 )
+
+find_package(nlohmann_json CONFIG REQUIRED)
 
 ###############################################################################
 # The executable of our project

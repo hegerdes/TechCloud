@@ -10,12 +10,12 @@
  */
 
 #include <QApplication>
-//#include <nlohmann/json.hpp>
+#include <nlohmann/json.hpp>
 #include "include/ui/MainWindow.h"
 #include "include/reader/Note.hpp"
 #include "include/reader/Note_preference.hpp"
 
-//using json = nlohmann::json;
+using json = nlohmann::json;
 using namespace tcloud;
 
 int main(int argc, char *argv[])
