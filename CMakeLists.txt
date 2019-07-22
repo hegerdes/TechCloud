@@ -6,24 +6,32 @@ cmake_minimum_required(VERSION 3.6)
 ###############################################################################
 # The name of out project
 ###############################################################################
-project(Tech_Cloud)
+project(tech_cloud)
 
 ###############################################################################
-# Now declare additional linker and include directories.
+# Now add and declare additional linker and include directories.
 ###############################################################################
-
-include_directories(${CMAKE_SOURCE_DIR})
-
+set(JSON_BuildTests OFF CACHE INTERNAL "")
+add_subdirectory(ext_lib/nlohmannJSON)
 
 ###############################################################################
 # Extend path to search for local cmake modules
 ###############################################################################
-
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/")
+
+set(GENARAL_INCLUDE ${CMAKE_SOURCE_DIR}/include)
+set(UI_INCLUDE ${GENARAL_INCLUDE}/ui)
+set(READER_INCLUDE ${GENARAL_INCLUDE}/reader)
+
+include_directories(${CMAKE_SOURCE_DIR})
+include_directories(${GENARAL_INCLUDE})
+include_directories(${UI_INCLUDE})
+include_directories(${READER_INCLUDE})
+
+
 ###############################################################################
 #Add additional paths that will be searched with find_package
 ###############################################################################
-
 IF (WIN32)
     set (CMAKE_PREFIX_PATH "C:/Qt/5.12.2/msvc2017_64")
     SET(BOOST_ROOT "C:/libs/boost_1_70_0")
@@ -34,18 +42,14 @@ ENDIF()
 ###############################################################################
 # Set additional compiler flags for different configurations.
 ###############################################################################
-
 set( CMAKE_CXX_FLAGS         "-std=c++17 -O3 -Wall" )
 set( CMAKE_CXX_FLAGS_RELEASE "-std=c++17 -O3 -msse3 -Wno-deprecated-declarations -Wno-unused -Wcpp" )
 set( CMAKE_CXX_FLAGS_DEBUG   "-g -Wall -std=c++17" )
 
 ###############################################################################
-# Find required libraries. The required options forces packages to be present.
-# The can then check if they were found by using IF(OpenGL_found) etc.
+# Find required libraries.
 ###############################################################################
-
 set(Boost_USE_MULTITHREADED     ON)
-
 find_package( Boost 1.50
     COMPONENTS
     program_options
@@ -63,7 +67,7 @@ add_definitions(${Boost_LIB_DIAGNOSTIC_DEFINITIONS})
 # Find and setup Qt5
 ###############################################################################
 set( QT_USE_QTOPENGL TRUE )
-find_package( Qt5
+find_package(Qt5 REQUIRED
     COMPONENTS
     Core
     Network
@@ -73,8 +77,6 @@ find_package( Qt5
     Multimedia
     REQUIRED
 )
-find_package(Qt5Multimedia REQUIRED)
-
 include_directories(${Qt5Widgets_INCLUDE_DIRS})
 include_directories(${Qt5Concurrent_INCLUDE_DIRS})
 include_directories(${Qt5Core_INCLUDE_DIRS})
@@ -97,8 +99,8 @@ set(TECHCLOUD_SOURCES
 )
 
 set(TECHCLOUD_MOCS
-    src/ui/ResultWindow.h
-    src/ui/MainWindow.h
+    include/ui/MainWindow.h
+    include/ui/ResultWindow.h
 )
 
 set(TECHCLOUD_UIS
@@ -123,22 +125,23 @@ set(TECHCLOUD_DEPENDS
     ${Boost_FILESYSTEM_LIBRARY}
     ${Qt5Widgets_LIBRARIES}
     ${Qt5Network_LIBRARIES}
+    nlohmann_json::nlohmann_json
 )
 
 ###############################################################################
 # The executable of our project
 ###############################################################################
 
-add_executable(TechCloud
+add_executable(${PROJECT_NAME}
     ${TECHCLOUD_SOURCES}
     ${TECHCLOUD_MOCS}
     ${TECHCLOUD_UI_HDRS}
 )
 
-qt5_use_modules(TechCloud Multimedia)
+qt5_use_modules(tech_cloud Multimedia)
 
 ###############################################################################
 # External library dependencys
 ###############################################################################
 
-target_link_libraries(TechCloud ${TECHCLOUD_DEPENDS})
+target_link_libraries(tech_cloud ${TECHCLOUD_DEPENDS})

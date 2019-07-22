@@ -10,7 +10,7 @@
  */
 
 
-#include "MainWindow.h"
+#include "include/ui/MainWindow.h"
 #include "ui_MainWindow.h"
 
 namespace tcloud

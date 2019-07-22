@@ -9,7 +9,7 @@
  *
  */
 
-#include "Note.hpp"
+#include "reader/Note.hpp"
 
 namespace tcloud
 {

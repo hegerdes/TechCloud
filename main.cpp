@@ -9,13 +9,13 @@
  *
  */
 
-#include "src/ui/MainWindow.h"
 #include <QApplication>
-#include "src/reader/Note.hpp"
-#include "ext/json/json.hpp"
-#include "src/reader/Note_preference.hpp"
+//#include <nlohmann/json.hpp>
+#include "include/ui/MainWindow.h"
+#include "include/reader/Note.hpp"
+#include "include/reader/Note_preference.hpp"
 
-using json = nlohmann::json;
+//using json = nlohmann::json;
 using namespace tcloud;
 
 int main(int argc, char *argv[])

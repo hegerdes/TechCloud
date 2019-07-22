@@ -24,21 +24,18 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 #Libs
-
-INCLUDEPATH += C:\libs\boost_1_70_0
-#LIBS += C:\libs\boost_1_70_0\msvclibs_all\lib\
+INCLUDEPATH += \
+            include\ui \
 
 
 SOURCES += \
         main.cpp \
-        src\reader\Note.cpp \
-        src/reader/Note_preference.cpp \
         src\ui\ResultWindow.cpp \
         src\ui\MainWindow.cpp
 
 HEADERS += \
-        src\ui\ResultWindow.h \
-        src\ui\MainWindow.h
+        include\ui\ResultWindow.h \
+        include\ui\MainWindow.h
 
 FORMS += \
         src\ui\ResultWindow.ui \
