@@ -10,7 +10,7 @@
  */
 
 
-#include "include/ui/ResultWindow.h"
+#include "ResultWindow.h"
 #include "ui_ResultWindow.h"
 
 namespace tcloud
