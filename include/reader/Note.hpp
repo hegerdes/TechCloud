@@ -18,7 +18,9 @@
 #include <boost/optional.hpp>
 #include <stdexcept>
 #include <regex>
+#include <iostream>
 #include <vector>
+#include <memory>
 
 namespace tcloud
 {
@@ -57,6 +59,7 @@ private:
 class Note
 {
 public:
+    using Ptr = std::shared_ptr<Note>;
     /**
      * @brief Construct a new Note object
      *

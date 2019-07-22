@@ -23,26 +23,40 @@ namespace tcloud
 class NoteFactory
 {
 public:
-    /**
-     * @brief Construct a new NoteFactory object
-     *
-     */
-    NoteFactory(){}
 
-    /**
-     * @brief Destroy the NoteFactory object
-     *
-     */
-    virtual ~NoteFactory() = default;
+    static NoteFactory& getInstance()
+    {
+        static NoteFactory instance;
+        return instance;
+    }
 
-    bool addNote(Note note){
-        m_con_notes.insert(std::pair<int,Note>(note.get_id(),note));
+    NoteFactory(NoteFactory const&)         = delete;
+    void operator=(NoteFactory const&)      = delete;
+
+
+    bool addNote(Note::Ptr note){
+        m_con_notes.insert(std::pair<int,Note::Ptr>(note->get_id(),note));
         return true;
+    }
+
+    void print()
+    {
+        for(auto item : m_con_notes)
+        {
+            std::cout << item.second->get_title() << std::endl;
+        }
+    }
+
+private:
+    NoteFactory()
+    {
+        //m_con_notes = std::map<int,Note::Ptr>();
     }
 
 private:
 
-    std::map<int,Note> m_con_notes;
+    static NoteFactory& instance;
+    std::map<int,Note::Ptr> m_con_notes;
 };
 
 } // namespace tcloud

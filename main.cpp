@@ -26,7 +26,11 @@ int main(int argc, char *argv[])
     MainWindow window;
 
 
+    BuildNote& bn = BuildNote::getInstance();
+    NoteFactory& nf = NoteFactory::getInstance();
 
+    nf.addNote(bn.createNote());
+    nf.print();
     //window.setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
     //window.show();
 

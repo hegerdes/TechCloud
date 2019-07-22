@@ -1,8 +1,9 @@
+# Declare the minimum cmake version required
+cmake_minimum_required(VERSION 3.6)
+
 # The name of out project
 project(tech_cloud)
 
-# Declare the minimum cmake version required
-cmake_minimum_required(VERSION 3.6)
 
 # Setings
 set(JSON_BuildTests OFF CACHE INTERNAL "")
@@ -52,7 +53,7 @@ include_directories(${Boost_INCLUDE_DIRS})
 add_definitions(${Boost_LIB_DIAGNOSTIC_DEFINITIONS})
 
 #NlohlmannJSON
-find_package(nlohmann_json CONFIG REQUIRED)
+#find_package(nlohmann_json CONFIG REQUIRED)
 
 # Find and setup Qt5
 set(QT_USE_QTOPENGL TRUE )
