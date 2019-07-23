@@ -16,14 +16,15 @@
 
 #include <iostream>
 #include <boost/optional.hpp>
+#include <nlohmann/json.hpp>
 #include <stdexcept>
 #include <regex>
-#include <iostream>
 #include <vector>
 #include <memory>
 
 namespace tcloud
 {
+using nlohmann::json;
 
 class Ref
 {
@@ -60,17 +61,10 @@ class Note
 {
 public:
     using Ptr = std::shared_ptr<Note>;
-    /**
-     * @brief Construct a new Note object
-     *
-     */
+
     Note();
 
-    /**
-     * @brief Destroy the Note object
-     *
-     */
-    virtual ~Note() = default;
+    ~Note() = default;
 
     inline int64_t & get_id() { return m_id; }
     void set_id(const int64_t& value) { this->m_id = value; }
@@ -100,7 +94,7 @@ public:
     void set_refs(const std::vector<Ref>& value) { this->m_refs = value; }
 
 
-private:
+//private:
     int64_t m_id;
     std::string m_title;
     std::string m_sumery;
@@ -111,6 +105,15 @@ private:
     bool m_favorite;
     std::vector<Ref> m_refs;
 };
+
+void inline to_json(json& j, const Note& n)
+{
+    j = json{{"id", n.m_id}, {"title", n.m_title}};
+}
+
+void inline from_json(const json& j, Note& n)
+{
+}
 
 } // namespace tcloud
 

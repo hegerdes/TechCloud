@@ -23,6 +23,7 @@ namespace tcloud
 class NoteFactory
 {
 public:
+    using NoteMap = std::map<int,Note::Ptr>;
 
     static NoteFactory& getInstance()
     {
@@ -47,8 +48,14 @@ public:
         }
     }
 
+    inline int64_t get_id_counter(){return id_counter;}
+
+    inline int64_t inc_id_counter(){return ++id_counter;}
+
+    inline NoteMap getMap(){return m_con_notes;}
+
 private:
-    NoteFactory()
+    NoteFactory(): id_counter(0)
     {
         //m_con_notes = std::map<int,Note::Ptr>();
     }
@@ -56,7 +63,9 @@ private:
 private:
 
     static NoteFactory& instance;
-    std::map<int,Note::Ptr> m_con_notes;
+    NoteMap m_con_notes;
+
+    int32_t id_counter;
 };
 
 } // namespace tcloud

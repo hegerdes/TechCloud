@@ -10,6 +10,7 @@
  */
 
 #include <QApplication>
+#include <boost/program_options.hpp>
 #include <nlohmann/json.hpp>
 #include "include/ui/MainWindow.h"
 #include "Note.hpp"
@@ -19,20 +20,59 @@
 
 using json = nlohmann::json;
 using namespace tcloud;
+namespace po = boost::program_options;
 
 int main(int argc, char *argv[])
 {
-    QApplication a(argc, argv);
-    MainWindow window;
-
-
     BuildNote& bn = BuildNote::getInstance();
     NoteFactory& nf = NoteFactory::getInstance();
 
-    nf.addNote(bn.createNote());
-    nf.print();
-    //window.setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
-    //window.show();
+    po::options_description desc("Allowed options");
 
-    //return a.exec();
+    desc.add_options()
+    ("help", "produce help message")
+    ("add", "add a new note")
+    ("list", "list number and title of all notes")
+    ("grafic", "start grafical interface")
+    ("compression", po::value<int>(), "set compression level");
+
+    po::variables_map vm;
+    po::store(po::parse_command_line(argc, argv, desc), vm);
+    po::notify(vm);
+
+    if (vm.count("help")) {
+        std::cout << desc << "\n";
+        return 1;
+    }
+
+    if (vm.count("add")) {
+        nf.addNote(bn.createNote());
+    }
+
+    if (vm.count("list")) {
+        //TODO
+    }
+
+    if (vm.count("grafic")) {
+        QApplication a(argc, argv);
+        MainWindow window;
+        //window.setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
+        window.show();
+        return a.exec();
+    }
+
+    if (vm.count("compression")) {
+        std::cout << "Compression level was set to "
+     << vm["compression"].as<int>() << ".\n";
+    }
+
+    Note n = Note();
+    n.set_id(1);
+    n.set_title("Hello");
+
+    json j = n;
+    std::cout << j<< std::endl;
+
+
+    nf.print();
 }

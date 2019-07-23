@@ -34,16 +34,24 @@ public:
 
     Note::Ptr createNote()
     {
-        auto note = std::make_shared<Note>();
-        std::cout << "Enter entry name:" << std::endl;
         std::string tmp;
+        NoteFactory& nf = NoteFactory::getInstance();
+        auto note = std::make_shared<Note>();
+        note->set_id(nf.inc_id_counter());
+        std::cout << "Enter entry name:" << std::endl;
         std::cin >> tmp;
         note->set_title(tmp);
+        std::cout << "Enter discription:" << std::endl;
+        std::cin >> tmp;
+        //note->set_dis(tmp);
         return note;
     }
 
 private:
     BuildNote(){}
+
+    static BuildNote& instance;
+
 };
 
 } // namespace tcloud
