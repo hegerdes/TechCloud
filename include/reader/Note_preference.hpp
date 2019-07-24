@@ -38,7 +38,7 @@ public:
     inline void set_note_name(const std::string& value) { this->note_name = value; }
     };
 
-    NotePreferences();
+    NotePreferences() = default;
     virtual ~NotePreferences() = default;
 
     inline std::vector<Favorite> & get_Favorites() { return m_Favorites; }

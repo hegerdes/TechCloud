@@ -15,7 +15,6 @@
 #pragma once
 
 #include <iostream>
-#include <boost/optional.hpp>
 #include <nlohmann/json.hpp>
 #include <stdexcept>
 #include <regex>
@@ -29,25 +28,16 @@ using nlohmann::json;
 class Ref
 {
 public:
-    /**
-	 * @brief Construct a new Ref object
-	 *
-	 */
-    Ref() = default;
 
-    /**
-	 * @brief Destroy the Ref object
-	 *
-	 */
-    virtual ~Ref() = default;
+    Ref();
 
-    inline std::string &get_replace_word() { return replace_word; }
+    ~Ref() = default;
 
-    inline void set_replace_word(const std::string &value) { this->replace_word = value; }
+    std::string& get_replace_word();
+    void set_replace_word(const std::string &value);
 
-    inline int64_t &get_ref_num() { return ref_num; }
-
-    inline void set_ref_num(const int64_t &value) { this->ref_num = value; }
+    int64_t& get_ref_num();
+    void set_ref_num(const int64_t &value);
 
 private:
     //Word to be replaced with a link
@@ -66,32 +56,32 @@ public:
 
     ~Note() = default;
 
-    inline int64_t & get_id() { return m_id; }
-    void set_id(const int64_t& value) { this->m_id = value; }
+    int64_t& get_id();
+    void set_id(const int64_t& value);
 
-    inline std::string & get_title() { return m_title; }
-    void set_title(const std::string& value) { this->m_title = value; }
+    std::string& get_title();
+    void set_title(const std::string& value);
 
-    inline std::string & get_sum() { return m_sumery; }
-    void set_sum(const std::string& value) { this->m_sumery = value; }
+    std::string& get_sum();
+    void set_sum(const std::string& value);
 
-    inline std::string & get_dis() { return m_discription; }
-    void set_dis(const std::string& value) { this->m_discription = value; }
+    std::string& get_dis();
+    void set_dis(const std::string& value);
 
-    inline std::string & get_example() { return m_example; }
-    void set_example(const std::string& value) { this->m_example = value; }
+    std::string& get_example();
+    void set_example(const std::string& value);
 
-    inline std::vector<std::string> & get_tags() { return m_tags; }
-    void set_tags(const std::vector<std::string>& value) { this->m_tags = value; }
+    std::vector<std::string>& get_tags();
+    void set_tags(const std::vector<std::string>& value);
 
-    inline std::string & get_group() { return m_group; }
-    void set_group(const std::string& value) { this->m_group = value; }
+    std::string& get_group();
+    void set_group(const std::string& value);
 
-    inline bool & get_favorite() { return m_favorite; }
-    void set_favorite(const bool& value) { this->m_favorite = value; }
+    bool& get_favorite();
+    void set_favorite(const bool& value);
 
-    inline std::vector<Ref> & get_refs() { return m_refs; }
-    void set_refs(const std::vector<Ref>& value) { this->m_refs = value; }
+    std::vector<Ref>& get_refs();
+    void set_refs(const std::vector<Ref>& value);
 
 
 //private:
@@ -106,9 +96,9 @@ public:
     std::vector<Ref> m_refs;
 };
 
-void inline to_json(json& j, const Note& n)
+void inline to_json(json& j, const Note::Ptr& n)
 {
-    j = json{{"id", n.m_id}, {"title", n.m_title}};
+    j = json{{"ID", n->get_id()}, {"Title", n->get_title()}, {"Summary", n->get_sum()}, {"Description", n->get_dis()},{"Example", n->get_example()}};
 }
 
 void inline from_json(const json& j, Note& n)

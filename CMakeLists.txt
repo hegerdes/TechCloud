@@ -80,6 +80,8 @@ set(TECHCLOUD_SOURCES
     main.cpp
     src/reader/Note.cpp
     src/reader/Note_preference.cpp
+    src/reader/NoteFactory.cpp
+    src/reader/BuildNote.cpp
     src/ui/ResultWindow.cpp
     src/ui/MainWindow.cpp
 )

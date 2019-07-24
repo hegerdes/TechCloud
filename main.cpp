@@ -12,11 +12,11 @@
 #include <QApplication>
 #include <boost/program_options.hpp>
 #include <nlohmann/json.hpp>
-#include "include/ui/MainWindow.h"
-#include "Note.hpp"
 #include "Note_preference.hpp"
 #include "NoteFactory.hpp"
 #include "BuildNote.hpp"
+#include "MainWindow.h"
+#include "Note.hpp"
 
 using json = nlohmann::json;
 using namespace tcloud;
@@ -32,6 +32,7 @@ int main(int argc, char *argv[])
     desc.add_options()
     ("help", "produce help message")
     ("add", "add a new note")
+    ("version", "list the programm version")
     ("list", "list number and title of all notes")
     ("grafic", "start grafical interface")
     ("compression", po::value<int>(), "set compression level");
@@ -45,8 +46,12 @@ int main(int argc, char *argv[])
         return 1;
     }
 
+    if (vm.count("version")) {
+        nf.addNote(bn.createNoteBash());
+    }
+
     if (vm.count("add")) {
-        nf.addNote(bn.createNote());
+        nf.addNote(bn.createNoteBash());
     }
 
     if (vm.count("list")) {
@@ -65,13 +70,6 @@ int main(int argc, char *argv[])
         std::cout << "Compression level was set to "
      << vm["compression"].as<int>() << ".\n";
     }
-
-    Note n = Note();
-    n.set_id(1);
-    n.set_title("Hello");
-
-    json j = n;
-    std::cout << j<< std::endl;
 
 
     nf.print();

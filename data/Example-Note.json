@@ -1,8 +1,8 @@
 {
     "ID": 1,
     "Title": "Num1",
-    "Sum": "Das ist ein Beispiel",
-    "Dis": "Hier steht ganz viel Text",
+    "Summary": "Das ist ein Beispiel",
+    "Description": "Hier steht ganz viel Text",
     "Example": "CODE",
     "Tags": ["CPP","2","3","4"],
     "Group": "Ungrouped",

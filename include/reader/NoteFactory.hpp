@@ -44,7 +44,9 @@ public:
     {
         for(auto item : m_con_notes)
         {
-            std::cout << item.second->get_title() << std::endl;
+            json j = item.second;
+            std::cout << j<< std::endl;
+            //std::cout << item.second->get_title() << std::endl;
         }
     }
 
