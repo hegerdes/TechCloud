@@ -12,6 +12,12 @@ set(GENARAL_INCLUDE ${CMAKE_SOURCE_DIR}/include)
 set(UI_INCLUDE ${GENARAL_INCLUDE}/ui)
 set(READER_INCLUDE ${GENARAL_INCLUDE}/reader)
 
+set(CMAKE_AUTOUIC ON)
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_INCLUDE_CURRENT_DIR ON)
+set(QT_USE_QTOPENGL TRUE )
+set(Boost_USE_MULTITHREADED     ON)
+
 # Extend path to search for local cmake modules
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/")
 
@@ -25,12 +31,6 @@ include_directories(${READER_INCLUDE})
 
 
 #Add additional paths that will be searched with find_package
-IF (WIN32)
-    set (CMAKE_PREFIX_PATH "C:/Qt/5.12.2/msvc2017_64")
-    SET(BOOST_ROOT "C:/libs/boost_1_70_0")
-    SET(BOOST_LIBRARYDIR "C:/libs/boost_1_70_0/msvclibs_all/lib")
-    SET(Boost_NAMESPACE "libboost")
-ENDIF()
 
 # Set additional compiler flags for different configurations.
 set( CMAKE_CXX_FLAGS         "-O3 -Wall" )
@@ -38,15 +38,16 @@ set( CMAKE_CXX_FLAGS_RELEASE "-O3 -msse3 -Wno-deprecated-declarations -Wno-unuse
 set( CMAKE_CXX_FLAGS_DEBUG   "-g -Wall" )
 
 # Find required libraries.
-set(Boost_USE_MULTITHREADED     ON)
-find_package( Boost 1.50
-COMPONENTS
-program_options
-filesystem
-system
-thread
-serialization
-REQUIRED )
+
+message("Looking for Boost...")
+find_package(Boost 1.50 REQUIRED
+    COMPONENTS
+    program_options
+    filesystem
+    system
+    thread
+    serialization
+)
 
 link_directories(${Boost_LIBRARY_DIR})
 include_directories(${Boost_INCLUDE_DIRS})
@@ -56,17 +57,22 @@ add_definitions(${Boost_LIB_DIAGNOSTIC_DEFINITIONS})
 #find_package(nlohmann_json CONFIG REQUIRED)
 
 # Find and setup Qt5
-set(QT_USE_QTOPENGL TRUE )
+message("Looking for Qt...")
 find_package(Qt5 REQUIRED
     COMPONENTS
     Core
+    Gui
     Network
     Widgets
-    Concurrent
-    OpenGL
     Multimedia
-    REQUIRED
-    )
+)
+
+if (${Qt5_FOUND})
+    message("Found Qt " ${Qt5_VERSION})
+else()
+    message("Couldn't find Qt")
+endif()
+
 include_directories(${Qt5Widgets_INCLUDE_DIRS})
 include_directories(${Qt5Concurrent_INCLUDE_DIRS})
 include_directories(${Qt5Core_INCLUDE_DIRS})
@@ -96,9 +102,6 @@ set(TECHCLOUD_UIS
     src/ui/MainWindow.ui
 )
 
-set(CMAKE_AUTOUIC ON)
-set(CMAKE_AUTOMOC ON)
-set(CMAKE_INCLUDE_CURRENT_DIR ON)
 qt5_wrap_ui(TECHCLOUD_UI_HDRS ${TECHCLOUD_UIS})
 message(STATUS ${TECHCLOUD_UI_HDRS})
 
