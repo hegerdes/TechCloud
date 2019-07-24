@@ -8,6 +8,7 @@
  * @copyright Copyright (c) 2019
  *
  */
+const double version = 0.1;
 
 #include <QApplication>
 #include <boost/program_options.hpp>
@@ -30,12 +31,11 @@ int main(int argc, char *argv[])
     po::options_description desc("Allowed options");
 
     desc.add_options()
-    ("help", "produce help message")
-    ("add", "add a new note")
-    ("version", "list the programm version")
-    ("list", "list number and title of all notes")
-    ("grafic", "start grafical interface")
-    ("compression", po::value<int>(), "set compression level");
+    ("help,h", "produce help message")
+    ("add,a", "add a new note")
+    ("version,v", "list the programm version")
+    ("list,l", "list number and title of all notes")
+    ("grafic,g", "start grafical interface");
 
     po::variables_map vm;
     po::store(po::parse_command_line(argc, argv, desc), vm);
@@ -47,7 +47,7 @@ int main(int argc, char *argv[])
     }
 
     if (vm.count("version")) {
-        nf.addNote(bn.createNoteBash());
+        std::cout << "Your are using TechCloud version: " << version << std::endl;
     }
 
     if (vm.count("add")) {
@@ -64,11 +64,6 @@ int main(int argc, char *argv[])
         //window.setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
         window.show();
         return a.exec();
-    }
-
-    if (vm.count("compression")) {
-        std::cout << "Compression level was set to "
-     << vm["compression"].as<int>() << ".\n";
     }
 
 
