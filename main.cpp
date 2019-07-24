@@ -33,6 +33,8 @@ int main(int argc, char *argv[])
     desc.add_options()
     ("help,h", "produce help message")
     ("add,a", "add a new note")
+    ("search,s", "search for a note")
+    ("edit,e", po::value<int>()->default_value(0) , "edit note")
     ("version,v", "list the programm version")
     ("list,l", "list number and title of all notes")
     ("grafic,g", "start grafical interface");
@@ -55,6 +57,15 @@ int main(int argc, char *argv[])
     }
 
     if (vm.count("list")) {
+        //TODO
+    }
+
+    if (vm.count("edit")) {
+        //TODO
+        //int id = vm["edit"].as<int>();
+    }
+
+    if (vm.count("search")) {
         //TODO
     }
 
