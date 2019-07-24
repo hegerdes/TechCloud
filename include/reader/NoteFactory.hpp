@@ -25,44 +25,23 @@ class NoteFactory
 public:
     using NoteMap = std::map<int,Note::Ptr>;
 
-    static NoteFactory& getInstance()
-    {
-        static NoteFactory instance;
-        return instance;
-    }
+    static NoteFactory& getInstance();
+
+    bool addNote(Note::Ptr note);
+
+    NoteMap getMap();
+
+    void print();
+
+    int64_t get_id_counter();
+    int64_t inc_id_counter();
 
     NoteFactory(NoteFactory const&)         = delete;
     void operator=(NoteFactory const&)      = delete;
 
 
-    bool addNote(Note::Ptr note){
-        m_con_notes.insert(std::pair<int,Note::Ptr>(note->get_id(),note));
-        return true;
-    }
-
-    void print()
-    {
-        for(auto item : m_con_notes)
-        {
-            json j = item.second;
-            std::cout << j<< std::endl;
-            //std::cout << item.second->get_title() << std::endl;
-        }
-    }
-
-    inline int64_t get_id_counter(){return id_counter;}
-
-    inline int64_t inc_id_counter(){return ++id_counter;}
-
-    inline NoteMap getMap(){return m_con_notes;}
-
 private:
-    NoteFactory(): id_counter(0)
-    {
-        //m_con_notes = std::map<int,Note::Ptr>();
-    }
-
-private:
+    NoteFactory();
 
     static NoteFactory& instance;
     NoteMap m_con_notes;
