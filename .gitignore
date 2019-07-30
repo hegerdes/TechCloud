@@ -2,6 +2,8 @@
 
 #Res
 *.jpg
+#Tmp icons where licance is missing
+res/icon/*
 
 #build stuff
 **/.vs/*

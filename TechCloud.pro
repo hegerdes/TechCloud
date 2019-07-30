@@ -30,6 +30,9 @@ INCLUDEPATH += \
 INCLUDEPATH += C:\libs\vcpkg\installed\x64-windows\include\*
 LIBS += C:\libs\vcpkg\installed\x64-windows\lib\*
 
+#Set res or Icon
+#win32:RC_ICONS += res\icon\computing-cloud.svg
+
 SOURCES += \
         main.cpp \
         src\ui\ResultWindow.cpp \

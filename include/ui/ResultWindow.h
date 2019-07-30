@@ -13,6 +13,7 @@
 #ifndef RESULTWINDOW_H
 #define RESULTWINDOW_H
 
+#include <iostream>
 #include <QWidget>
 #include <QAction>
 #include <QMenu>
@@ -32,13 +33,22 @@ public:
     explicit ResultWindow(QWidget *parent = nullptr);
     ~ResultWindow();
 
+private slots:
+
+    void on_save_edit_pushButton_clicked();
+
 private:
 
     //TitelMenu
     void createMenu();
     //The name of the found result
     std::string m_title;
+    //The ui
     Ui::ResultWindow *ui;
+    //Edit mode
+    bool m_edit;
+    //Is favorite
+    bool m_fav;
 };
 
 } //tcloud

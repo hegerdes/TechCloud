@@ -117,6 +117,9 @@
          </sizepolicy>
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_3">
+         <property name="spacing">
+          <number>6</number>
+         </property>
          <property name="sizeConstraint">
           <enum>QLayout::SetDefaultConstraint</enum>
          </property>
@@ -146,8 +149,20 @@
            <property name="lineWidth">
             <number>1</number>
            </property>
+           <property name="verticalScrollBarPolicy">
+            <enum>Qt::ScrollBarAsNeeded</enum>
+           </property>
+           <property name="horizontalScrollBarPolicy">
+            <enum>Qt::ScrollBarAlwaysOff</enum>
+           </property>
+           <property name="sizeAdjustPolicy">
+            <enum>QAbstractScrollArea::AdjustIgnored</enum>
+           </property>
            <property name="widgetResizable">
             <bool>true</bool>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
            </property>
            <widget class="QWidget" name="scrollAreaWidgetContents">
             <property name="geometry">
@@ -174,31 +189,51 @@
              <property name="bottomMargin">
               <number>8</number>
              </property>
-             <property name="horizontalSpacing">
-              <number>7</number>
-             </property>
-             <property name="verticalSpacing">
+             <property name="spacing">
               <number>5</number>
              </property>
-             <item row="0" column="0">
-              <widget class="QLabel" name="discib_label">
-               <property name="text">
-                <string>Discription</string>
-               </property>
-              </widget>
-             </item>
-             <item row="3" column="0">
-              <widget class="QTextEdit" name="example_textEdit"/>
-             </item>
              <item row="2" column="0">
               <widget class="QLabel" name="example_label">
                <property name="text">
-                <string>Example</string>
+                <string>Example:</string>
                </property>
               </widget>
              </item>
              <item row="1" column="0">
-              <widget class="QTextEdit" name="dis_textEdit"/>
+              <widget class="QTextEdit" name="dis_textEdit">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="verticalScrollBarPolicy">
+                <enum>Qt::ScrollBarAsNeeded</enum>
+               </property>
+               <property name="horizontalScrollBarPolicy">
+                <enum>Qt::ScrollBarAlwaysOff</enum>
+               </property>
+               <property name="sizeAdjustPolicy">
+                <enum>QAbstractScrollArea::AdjustToContents</enum>
+               </property>
+               <property name="placeholderText">
+                <string notr="true"/>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="0">
+              <widget class="QTextEdit" name="example_textEdit">
+               <property name="sizeAdjustPolicy">
+                <enum>QAbstractScrollArea::AdjustToContents</enum>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="0">
+              <widget class="QLabel" name="discib_label">
+               <property name="text">
+                <string>Discription:</string>
+               </property>
+              </widget>
              </item>
             </layout>
            </widget>
@@ -246,7 +281,7 @@
             <item row="1" column="2">
              <widget class="QPushButton" name="save_edit_pushButton">
               <property name="text">
-               <string>PushButton</string>
+               <string>Edit</string>
               </property>
              </widget>
             </item>
