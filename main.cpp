@@ -72,7 +72,9 @@ int main(int argc, char *argv[])
     if (vm.count("grafic")) {
         QApplication a(argc, argv);
         MainWindow window;
+
         //window.setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
+        window.setWindowIcon(QIcon(QPixmap("res/icon/computing-cloud.svg")));
         window.show();
         return a.exec();
     }
