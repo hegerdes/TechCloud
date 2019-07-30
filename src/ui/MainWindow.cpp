@@ -26,11 +26,19 @@ MainWindow::MainWindow(QWidget *parent) :
     resultWindow = new ResultWindow();
 
     //Set mainFrame size with mainWwindow size
-    ui->main_frame->size().setWidth(this->size().width());
-    ui->main_frame->size().setHeight(this->size().height());
+    ui->main_frame_search->size().setWidth(this->size().width());
+    ui->main_frame_search->size().setHeight(this->size().height());
 
     //default hide advanced search
     ui->centralWidget->showMaximized();
+
+    QPixmap pixmap_set("res/icon/setting.png");
+    QIcon ButtonIcon1(pixmap_set);
+    ui->settings_pushButton->setIcon(ButtonIcon1);
+
+    QPixmap pixmap_search("res/icon/a_search.png");
+    QIcon ButtonIcon2(pixmap_search);
+    ui->advanced_pushButton->setIcon(ButtonIcon2);
 
 
     //Completer
@@ -53,20 +61,15 @@ MainWindow::~MainWindow()
     delete resultWindow;
 }
 
+void tcloud::MainWindow::on_advanced_pushButton_clicked()
+{
 
-
-//void MainWindow::on_useAdvanced_check_stateChanged(int arg1)
-//{
-//    if(arg1 == Qt::Unchecked)
-//    {
-//        ui->advanced_frame->hide();
-//    }else ui->advanced_frame->show();
-
-//}
-
+}
 
 void MainWindow::on_searchButton_clicked()
 {
     resultWindow->show();
 }
 } //tcloud
+
+

@@ -39,6 +39,8 @@ private slots:
 
     void on_searchButton_clicked();
 
+    void on_advanced_pushButton_clicked();
+
 private:
     Ui::MainWindow *ui;
     ResultWindow *resultWindow;
